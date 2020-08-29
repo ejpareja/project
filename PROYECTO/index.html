@@ -40,13 +40,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" href="#" id="usuario1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src="./img/images.png" class="img-fluid rounded-circle avatar mr-2">
-                    Nombre usuario
+                    
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Cerrar sesión</a>
+                    <a class="dropdown-item" href="./html/login.html" onclick="exit()">Cerrar sesión</a>
                   </div>
                 </li>
               </ul>        
@@ -59,7 +59,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-lg-9">
-                      <h3 class="font-weight-bold mb-0">Bienvenido usuario</h3> 
+                      <h3 class="font-weight-bold mb-0 " id="usuario"></h3> 
                   </div>
                   <div class="col-lg-3 d-flex">
                     <button class="btn btn-primary w-100 align-seft-center" data-toggle="modal" data-target="#InfoPerfil" >Perfil</button>
@@ -76,7 +76,7 @@
                         <div class="mx-auto">
                           
                           <h3 class="font-weight-bold">Fuerza</h3>
-                          <h6 class="badge badge-success ">30 %</h6>
+                          <h6 class="badge badge-success ">10 %</h6>
                         </div>      
                       </div>
                       <div class="col-lg-3 col-md-6 d-flex stat my-3">
@@ -89,14 +89,14 @@
                       <div class="col-lg-3 col-md-6 d-flex stat my-3">
                         <div class="mx-auto">
                           
-                          <h3 class="font-weight-bold">Fuerza</h3>
-                          <h6 class="badge badge-success ">50 %</h6>
+                          <h3 class="font-weight-bold">Comer</h3>
+                          <h6 class="badge badge-success ">40 %</h6>
                         </div>
                       </div>
                       <div class="col-lg-3 col-md-6 d-flex my-3">
                         <div class="mx-auto">
                           
-                          <h3 class="font-weight-bold">Fuerza</h3>
+                          <h3 class="font-weight-bold">Descanso</h3>
                           <h6 class="badge badge-success ">50 %</h6>
                         </div>
                       </div>
@@ -110,12 +110,14 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Info perfil</h5>
+                    
+
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                    Nombre
+                    <h3 class="font-weight-bold mb-0 " id="usuario3"></h3> 
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -211,6 +213,21 @@
       </div>
 
     </div>
+
+    <script>
+      var nameJSON = JSON.parse(localStorage.getItem('cliente'));
+      var element = document.getElementById("usuario");
+      if(nameJSON != null){
+        document.getElementById("usuario1").innerHTML = nameJSON.nombre;
+        document.getElementById("usuario3").innerHTML = "Nombre de usuario: " + nameJSON.nombre;
+        element.innerHTML = "Bienvenido " + nameJSON.nombre;
+      } else {
+        element.innerHTML = "Bienvenido " ;
+        document.getElementById("usuario3").innerHTML = "Nombre : Invitado"
+      }
+    
+
+    </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

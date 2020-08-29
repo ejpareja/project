@@ -34,10 +34,10 @@ function process(){
 }
 
 function getUsuer(name){
-    client = JSON.parse(localStorage.getItem('cliente'));
-    if(client != "" || client != null){
+    client = JSON.parse(localStorage.getItem('clientes'));
+    if(client != null){
         array.forEach(element => {
-            if(element.nombre == name){
+            if(element.nombre === name){
                 return element.id;
             } else {
                 return "";
